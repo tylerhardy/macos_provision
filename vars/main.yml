@@ -55,6 +55,9 @@ homebrew:
     - transmission
     - dash
     - lightpaper
+    - sourcetree
+    - charles
+    - android-studio
 
 # python packages
 pip:
