@@ -33,6 +33,8 @@ homebrew:
     - npm
     - imagemagick
     - ack
+    - python
+    - python3
 
 
 
@@ -58,17 +60,22 @@ homebrew:
     - sourcetree
     - charles
     - android-studio
+    - keepingyouawake
+    - genymotion
 
 # python packages
 pip:
   packages:
   - ipython
   - virtualenv
+  - requests
+  - setuptools
 
 #node packages
 npm:
   packages:
     - peerflix
     - http-server
-
-
+    - socket.io
+    - statsd
+    - lodash
