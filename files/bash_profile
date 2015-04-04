@@ -1,14 +1,15 @@
+###########################################
+## Put Enviornment Varibals in .bash_env ##
+###########################################
+
+
 export PS1="\[\e[00;33m\]\u\[\e[0m\]\[\e[00;37m\]@\h:\n\[\e[0m\]\[\e[00;36m\][\w]:\[\e[0m\]\[\e[00;37m\] \[\e[0m\]"
-export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
+
+
 
 export ANDROID_HOME=/Users/shapath/Developer/SDK/AndroidSDK
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
-export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
-
 
 
 export DEV="local"
@@ -16,29 +17,33 @@ export DEBUG="true"
 #Env Variables
 
     #Production Key
-export DEBUG_SECRET_KEY="cATx~{@==@wT%hUr=0:^V-YRM_a<4WJ#zv,l:;q|ezFcSiUefC"
+
+    #Database Keys
 
 
-
+#Brew Overrides All System Apps
 
 #Open Files
 alias e="sl ~/.bash_profile"
 alias save="source ~/.bash_profile"
 
 #Open Programs
-alias studio="open /Applications/Android\ Studio.app"
+alias studio="open ~/Applications/Android\ Studio.app"
 
 #Directories
 alias ws="cd /Users/shapath/Developer"
 alias dws="cd /Users/shapath/Developer/django"
-alias aws="cd /Users/shapath/Developer/android"
+alias aws="cd /Users/shapath/Developer/Android"
 
 
+#Provision
+alias provision="sl /Users/shapath/Developer/provision/mac_dev_provision"
+alias build="cd /Users/shapath/Developer/provision/mac_dev_provision; make -f Makefile"
 
 #Python
 alias ve="source bin/activate"
 alias d="deactivate"
-alias pf="pip freeze > requirements.txt"
+alias req="pip freeze > requirements.txt"
 export PIP_DEFAULT_TIMEOUT=60
 
 
@@ -51,12 +56,7 @@ alias m="python manage.py migrate"
 
     #Python Projects
 
-alias muvi="dws; cd muvi; ve; cd Showtime"
-alias partify="dws; cd partify;ve; cd partify"
-alias cinetime="dws; cd cinetime;ve; cd cinetime"
-alias chup="dws; cd chupchap; ve; cd chupchap"
-alias push="dws; cd push; ve; cd app"
-
+alias traq="dws;cd traq; ve; cd app; clear"
 
 #Android
 alias debug="adb connect 10.10.0.36:5555"
@@ -79,23 +79,29 @@ alias get='git '
 
 #Network
 alias ip='ipconfig getifaddr en0'
-alias spoofmac="spoof-mac.py randomize wi-fi"
 
+
+export VAGRANT_ID="b5a2e49"
 
 #Vagrant Default Instance
-alias vup="vagrant up 6276f2d"
-alias vreload="vagrant reload 6276f2d"
-alias vhalt="vagrant halt 6276f2d"
-alias vssh="vagrant ssh 6276f2d"
+alias vup="vagrant up $VAGRANT_ID"
+alias vreload="vagrant reload $VAGRANT_ID"
+alias vhalt="vagrant halt $VAGRANT_ID"
+alias vssh="vagrant ssh $VAGRANT_ID"
+alias vprov="vagrant provision $VAGRANT_ID"
 alias vstart="vup; vssh"
+alias vrestart="vhalt; vstart"
 
+### Added by the Heroku Toolbelt
 
 ### SSH
-alias sshcinetime="ssh -p 2063 shapath@128.199.124.199"
-alias pub="cat ~/.ssh/id_rsa.pub"
+# alias sshcinetime="ssh -p 2063 shapath@128.199.124.199"
+alias pub="cat ~/.ssh/id_rsa.pub | pbcopy"
 
 
 #Bash Functions
+
+
 
 
 transfer() {
@@ -146,3 +152,8 @@ transfer() {
 }
 
 alias transfer=transfer
+
+
+if [ -f ~/.bash_env ]; then
+    . ~/.bash_env
+fi

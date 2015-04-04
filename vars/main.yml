@@ -14,10 +14,12 @@ source_code_pro:
   dest_folder: files/fonts/source_code_pro
 
 
+
+
 # Homebrew settings
 homebrew:
-  taps:
-    - caskoom/cask
+  # taps:
+    # - homebrew/completions
 
 
   packages:
@@ -35,6 +37,9 @@ homebrew:
     - ack
     - python
     - python3
+    - httrack
+    - watchman
+    - flow
 
 
 
@@ -62,6 +67,8 @@ homebrew:
     - android-studio
     - keepingyouawake
     - genymotion
+    - gpgtools
+    - adium
 
 # python packages
 pip:
@@ -79,3 +86,10 @@ npm:
     - socket.io
     - statsd
     - lodash
+    - bower
+    - react
+    - react-native-cli
+    - react-tools
+
+
+
