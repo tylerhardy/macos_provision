@@ -23,7 +23,6 @@ homebrew:
 
 
   packages:
-    - ansible
     - git
     - git-flow
     - go
@@ -34,12 +33,14 @@ homebrew:
     - node
     - npm
     - imagemagick
+    - ansible
     - ack
     - python
     - python3
     - httrack
     - watchman
     - flow
+    - hg
 
 
 
