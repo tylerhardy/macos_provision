@@ -24,7 +24,7 @@
       git: repo={{item}}
            dest={{source_code_pro.dest_folder}}
            clone=yes
-           version=1.017R
+           version=release
            accept_hostkey=yes
            update=yes
       with_items: source_code_pro.repo
