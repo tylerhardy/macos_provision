@@ -1,0 +1,95 @@
+---
+user: shapath
+
+# git settings
+git:
+  global:
+    user_name: neupaneshapath
+    user_email: neupaneshapath@gmail.com
+
+
+#Source Code Pro Settings
+source_code_pro:
+  repo: https://github.com/adobe-fonts/source-code-pro.git
+  dest_folder: files/fonts/source_code_pro
+
+
+
+
+# Homebrew settings
+homebrew:
+  # taps:
+    # - homebrew/completions
+
+
+  packages:
+    - ansible
+    - git
+    - git-flow
+    - go
+    - ssh-copy-id
+    - brew-cask
+    - wget
+    - tree
+    - node
+    - npm
+    - imagemagick
+    - ack
+    - python
+    - python3
+    - httrack
+    - watchman
+    - flow
+
+
+
+  cask:
+    app_dir: /Users/{{user}}/Applications
+    apps:
+    - spotify
+    - sublime-text3
+    - google-chrome
+    - dropbox
+    - firefoxdeveloperedition
+    - skype
+    - vagrant
+    - vlc
+    - virtualbox
+    - iterm2
+    - the-unarchiver
+    - pgadmin3
+    - flux
+    - transmission
+    - dash
+    - lightpaper
+    - sourcetree
+    - charles
+    - android-studio
+    - keepingyouawake
+    - genymotion
+    - gpgtools
+    - adium
+
+# python packages
+pip:
+  packages:
+  - ipython
+  - virtualenv
+  - requests
+  - setuptools
+
+#node packages
+npm:
+  packages:
+    - peerflix
+    - http-server
+    - socket.io
+    - statsd
+    - lodash
+    - bower
+    - react
+    - react-native-cli
+    - react-tools
+
+
+
