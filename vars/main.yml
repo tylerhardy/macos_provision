@@ -13,14 +13,10 @@ source_code_pro:
   repo: https://github.com/adobe-fonts/source-code-pro.git
   dest_folder: files/fonts/source_code_pro
 
-
-
-
 # Homebrew settings
 homebrew:
   # taps:
     # - homebrew/completions
-
 
   packages:
     - git
@@ -85,12 +81,7 @@ npm:
     - peerflix
     - http-server
     - socket.io
-    - statsd
-    - lodash
     - bower
-    - react
-    - react-native-cli
-    - react-tools
 
 
 
