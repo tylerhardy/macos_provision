@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
 
+
   vars_files:
     - vars/main.yml
 
@@ -80,13 +81,15 @@
             dest=files/git_config
             state=link
 
-    # - name: Register Git user
-    #   command: "git config --global user.name {{git.global.user_name}}"
-    #   changed_when: false
+    - name: Register Git user
+      command: >
+          git config --global user.name "{{git.global.user_name}}"
+      changed_when: false
 
-    # - name: Register Git email
-    #   command: "git config --global user.email {{git.global.user_email}}"
-    #   changed_when: false
+    - name: Register Git email
+      command: >
+           git config --global user.email "{{git.global.user_email}}"
+      changed_when: false
 
 
 

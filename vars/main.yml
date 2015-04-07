@@ -4,7 +4,7 @@ user: shapath
 # git settings
 git:
   global:
-    user_name: neupaneshapath
+    user_name: Shapath Neupane (Github neupaneshapath)
     user_email: neupaneshapath@gmail.com
 
 
