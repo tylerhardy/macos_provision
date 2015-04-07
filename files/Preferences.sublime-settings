@@ -1,76 +1,72 @@
 {
-	"ignored_packages":
-	[
-	"Vintage"
-	],
-	"theme": "Spacegray.sublime-theme",
-	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
-	"font_face": "Source Code Pro",
-	"font_size": 15,
-	"status_bar_brighter": true,
-	"ensure_newline_at_eof_on_save": true,
-	"draw_minimap_border": true,
-	"line_padding_bottom": 1,
-	"line_padding_top": 1,
-	"save_on_focus_lost": true,
-	"bold_folder_labels": true,
-	"scroll_speed": 5.0,
-
-	"tabs_padding_small": true,
-	"fallback_encoding": "UTF-8",
-
-	"file_exclude_patterns":
-	[
-	".DS_Store"
-	],
-	"find_selected_text": true,
-	"wrap_width": 80,
-
-	"folder_exclude_patterns":
-	[
-	".git",
-	".bundle",
-	".rbx"
-	],
-	"highlight_line": true,
-	"highlight_modified_tabs": true,
-	"index_exclude_patterns":
-	[
-	"*.log",
-	".git"
-	],
-	"match_brackets": true,
-	"show_minimap": true,
-	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
 	"atomic_save": true,
-	"line_numbers": true,
 	"binary_file_patterns":
 	[
-	"*.jpg",
-	"*.jpeg",
-	"*.png",
-	"*.gif",
-	"*.ttf",
-	"*.tga",
-	"*.dds",
-	"*.ico",
-	"*.eot",
-	"*.pdf",
-	"*.swf",
-	"*.jar",
-	"*.zip",
-	"*.dmp",
-	"*/min/*.js",
-	"*/min/*.css",
-	"*/min/*.map"
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip",
+		"*.dmp",
+		"*/min/*.js",
+		"*/min/*.css",
+		"*/min/*.map"
 	],
-  "rulers": // helpful to enforce a readable column width
-  [
-  78
-  ],
-
-
-
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+	"draw_minimap_border": true,
+	"ensure_newline_at_eof_on_save": true,
+	"fallback_encoding": "UTF-8",
+	"file_exclude_patterns":
+	[
+		".DS_Store"
+	],
+	"find_selected_text": true,
+	"folder_exclude_patterns":
+	[
+		".git",
+		".bundle",
+		".rbx"
+	],
+	"font_face": "Source Code Pro",
+	"font_size": 15,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"index_exclude_patterns":
+	[
+		"*.log",
+		".git"
+	],
+	"line_numbers": true,
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"match_brackets": true,
+	"rulers":
+	[
+		78
+	],
+	"save_on_focus_lost": true,
+	"scroll_speed": 5.0,
+	"show_minimap": true,
+	"scroll_past_end": true,
+	"status_bar_brighter": true,
+	"tabs_padding_small": true,
+	"theme": "Spacegray.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"wrap_width": 80,
+	"hot_exit": false,
 
 }

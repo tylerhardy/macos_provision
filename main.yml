@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
 
+
   vars_files:
     - vars/main.yml
 
@@ -38,6 +39,7 @@
     # - name: Create Symlinks
 
 
+
     - name: Install NPM Pakacges
       npm: name={{ item }} global=yes state=present
       with_items: npm.packages
@@ -55,14 +57,38 @@
     #   with_items: sublime_text.themes
     #   ignore_errors: yes
 
+    - name: Copy Bash Profile
+      copy: src=files/bash_profile
+            dest=/Users/{{user}}/.bash_profile
+            mode=0644
+            owner=root
+            group=staff
 
+    - name: Copy Git Config
+      copy: src=files/git_config
+            dest=/Users/{{user}}/.gitconfig
+            mode=0644
+            owner={{user}}
+            group=staff
+
+    - name: Create Symlink to Keep Git-Track of Bash Profile
+      file: src=/Users/{{user}}/.bash_profile
+            dest=files/bash_profile
+            state=link
+
+    - name: Create Symlink to Keep Git-Track of Git Config
+      file: src=/Users/{{user}}/.gitconfig
+            dest=files/git_config
+            state=link
 
     - name: Register Git user
-      command: "git config --global user.name {{git.global.user_name}}"
+      command: >
+          git config --global user.name "{{git.global.user_name}}"
       changed_when: false
 
     - name: Register Git email
-      command: "git config --global user.email {{git.global.user_email}}"
+      command: >
+           git config --global user.email "{{git.global.user_email}}"
       changed_when: false
 
 
