@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/neupaneshapath/ansible-mac-provision.svg?branch=master)](https://travis-ci.org/neupaneshapath/ansible-mac-provision)
+
 # Mac Provision
 
 
