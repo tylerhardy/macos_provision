@@ -1,15 +1,10 @@
 os:
   - osx
 
-language: python
-python: "2.7"
-
+language: objective-c
 
 
 before_install:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   - brew update
 
 
@@ -17,3 +12,6 @@ script:
   - ansible-playbook -i hosts -K main.yml --syntax-check
   - ansible-playbook main.yml -i hosts -connection=local --sudo -vv
 
+
+notifications:
+  email: false
