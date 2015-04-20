@@ -25,6 +25,7 @@
     - name: Install Cask Applications
       homebrew_cask: name={{item}} state=installed
       with_items: homebrew.cask.apps
+      ignore_errors: true
 
 
     - name: Install pip packages
