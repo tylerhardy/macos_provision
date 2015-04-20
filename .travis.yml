@@ -6,6 +6,8 @@ language: objective-c
 
 before_install:
   - brew update
+  - brew install caskroom/cask/brew-cask
+  - brew install gcc
   - brew install ansible
 
 
