@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
+  gather_facts: false
 
 
   vars_files:
@@ -7,9 +8,19 @@
 
   tasks:
 
+
+    - name: Brew Taps
+      homebrew_tap: tap={{item}} state=present
+      with_items: homebrew.taps
+
+
     - name: Install packages with homebrew
       homebrew: name={{item}} state=present
       with_items: homebrew.packages
+
+    - name: Upgrade Brew Packages
+      homebrew: upgrade_all=yes
+
 
     - name: Install Cask Applications
       homebrew_cask: name={{item}} state=installed

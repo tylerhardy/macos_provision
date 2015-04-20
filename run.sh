@@ -9,4 +9,4 @@ brew update
 brew install caskroom/cask/brew-cask
 brew install gcc
 brew install ansible
-ansible-playbook main.yml -i hosts --ask-sudo-pass -vvvv
+make -f Makefile

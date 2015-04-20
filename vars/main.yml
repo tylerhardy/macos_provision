@@ -15,8 +15,8 @@ source_code_pro:
 
 # Homebrew settings
 homebrew:
-  # taps:
-    # - homebrew/completions
+  taps:
+    - homebrew/completions
 
   packages:
     - git
@@ -37,7 +37,10 @@ homebrew:
     - watchman
     - flow
     - hg
-
+    - hugo
+    - vagrant-completion
+    - pip-completion
+    - django-completion
 
 
   cask:
