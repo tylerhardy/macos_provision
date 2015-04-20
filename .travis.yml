@@ -1,0 +1,20 @@
+os:
+  - osx
+
+language: objective-c
+
+
+before_install:
+  - brew update
+  - brew install caskroom/cask/brew-cask
+  - brew install gcc
+  - brew install ansible
+
+
+script:
+  - ansible-playbook -i hosts -K main.yml --syntax-check
+  - ansible-playbook main.yml -i hosts -connection=local -vv
+
+
+notifications:
+  email: false
