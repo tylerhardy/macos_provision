@@ -12,6 +12,7 @@ before_install:
 
 script:
   - ansible-playbook -i hosts -K main.yml --syntax-check
+# Below takes too long. ToDo Create A New Test Role [Later]
 #  - ansible-playbook main.yml -i hosts -connection=local -vv
 
 
