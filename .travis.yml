@@ -12,7 +12,7 @@ before_install:
 
 script:
   - ansible-playbook -i hosts -K main.yml --syntax-check
-  - ansible-playbook main.yml -i hosts -connection=local -vv
+#  - ansible-playbook main.yml -i hosts -connection=local -vv
 
 
 notifications:
