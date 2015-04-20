@@ -4,7 +4,12 @@ os:
 language: python
 python: "2.7"
 
+
+
 before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   - brew update
 
 
