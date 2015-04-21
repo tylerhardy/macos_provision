@@ -1,0 +1,68 @@
+[alias]
+    # one-line log
+    ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+
+    make = !git add -A && git commit -m
+    save = !git add -A && git commit -m 'SAVEPOINT'
+    wip = commit -am "WIP"
+
+    undo = reset HEAD~1 --mixed
+    amend = commit -a --amend
+
+    done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
+
+    lt = describe --tags --abbrev=0
+
+    a = add
+    ap = add -p
+    c = commit --verbose
+    ca = commit -a --verbose
+    cm = commit -m
+    cam = commit -a -m
+    m = commit --amend --verbose
+
+    d = diff
+    ds = diff --stat
+    dc = diff --cached
+
+    s = status -s
+    co = checkout
+    cob = checkout -b
+    # list branches sorted by last modified
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+
+    who = shortlog -n -s --no-merges
+
+
+    cleanup = !git remote prune origin && git gc && git clean -dfx && git stash clear
+    tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+
+    veins = log --graph --abbrev-commit --decorate --date=relative --all
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi\n"
+
+[user]
+	name = Shapath Neupane (Github neupaneshapath)
+	email = neupaneshapath@gmail.com
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[core]
+	excludesfile = ~/.gitignore
+	whitespace = trailing-space,space-before-tab
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+trustExitCode = true
+[advice]
+	statusHints = false
+	pushNonFastForward = false
+
+[push]
+	default = simple
+    set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
