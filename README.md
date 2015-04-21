@@ -9,7 +9,7 @@ An ansible playbook for generating my development environment.
 
 ```
 
-    Run [ run.sh ] in *non sudo* mode to install all application. 
+    Run [ run.sh ] on `non sudo` mode to run the playbooks.
     Ansible will automatically ask for sudo password when required.
 
 ```
