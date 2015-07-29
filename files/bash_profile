@@ -11,7 +11,7 @@ export ANDROID_HOME=/Users/shapath/Developer/SDK/AndroidSDK
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-
+export EDITOR=nano
 
 #Env Variables
 
@@ -30,6 +30,8 @@ alias f="foundation-apps "
 #Open Files
 alias e="sl ~/.bash_profile"
 alias save="source ~/.bash_profile"
+
+alias blog="ws; cd www; cd blog"
 
 
 #Open Programs
@@ -51,7 +53,7 @@ alias d="deactivate"
 alias req="pip freeze > requirements.txt"
 export PIP_DEFAULT_TIMEOUT=60
 
-alias pyfmt="find . -name '*.py' -exec autopep8 --in-place '{}' \;"
+alias pyfmt="find . -name '*.py' -exec autopep8 --in-place --jobs=1 '{}' \;"
 #Django
 
 alias rs="python manage.py runserver 0.0.0.0:8000"
@@ -75,7 +77,7 @@ alias wconnect="adb forward tcp:4444 localabstract:/adb-hub; adb connect localho
 alias ip='ipconfig getifaddr en0'
 
 
-export VAGRANT_ID="b3a8aef"
+export VAGRANT_ID="7d01fab"
 
 #Vagrant Default Instance
 alias vup="vagrant up $VAGRANT_ID"

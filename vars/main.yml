@@ -50,6 +50,7 @@ homebrew:
     - sublime-text3
     - google-chrome
     - dropbox
+    - firefox
     - firefoxdeveloperedition
     - skype
     - vagrant
@@ -69,6 +70,7 @@ homebrew:
     - genymotion
     - gpgtools
     - adium
+    - viber
 
 # python packages
 pip:
