@@ -1,4 +1,0 @@
-[
-        { "keys": ["super+l"], "command": "reindent", "args": {"single_line": false} },
-
-]

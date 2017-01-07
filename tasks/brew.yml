@@ -1,0 +1,55 @@
+---
+
+- name: Brew Tap
+  homebrew_tap:
+    tap: "{{ item }}"
+    state: present
+  with_items:
+    - caskroom/fonts
+    - homebrew/completions
+
+- name: Install packages with homebrew
+  homebrew: name={{item}} state=present
+  with_items:
+      - git
+      - git-flow
+      - go
+      - ssh-copy-id
+      - wget
+      - tree
+      - ansible
+      - python
+      - python3
+      - hugo
+      # Digital Ocean CLI
+      - doctl
+
+- name: Upgrade Brew Packages
+  homebrew: upgrade_all=yes
+
+
+- name: Install Cask Applications
+  homebrew_cask: name={{item}} state=installed
+  ignore_errors: true
+  with_items:
+      - spotify
+      - sublime-text3
+      - virtualbox
+      - vagrant
+      - vlc
+      - iterm2
+      - the-unarchiver
+      - pgadmin3
+      - flux
+      - transmission
+      - lightpaper
+      - android-studio
+      - keepingyouawake
+      - gpgtools
+      - opera
+      - postman
+      - font-awesome-terminal-fonts
+
+
+
+# Homebrew Vars

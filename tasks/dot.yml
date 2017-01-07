@@ -1,0 +1,12 @@
+---
+
+- name: Copy Bash Profile Template
+  template:
+    src: files/dot/bash_profile
+    dest: "/Users/{{ user.id }}/.bash_profile"
+    owner: "{{ user.id }}"
+    mode: 0644
+    group: staff
+
+
+

@@ -1,2 +1,2 @@
-[osx-dev-machine]
+[local]
 localhost ansible_connection=local

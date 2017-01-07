@@ -1,0 +1,19 @@
+---
+
+- name: Copy Git Config
+  copy:
+    src: files/dot/git_config
+    dest: "/Users/{{user.id }}/.gitconfig"
+    mode: 0644
+    owner: "{{ user.id }}"
+    group: staff
+
+- name: Register Git user
+  command: >
+      git config --global user.name "@{{ user.id }}"
+  changed_when: false
+
+- name: Register Git email
+  command: >
+       git config --global user.email "{{ user.email }}"
+  changed_when: false

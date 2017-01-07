@@ -41,28 +41,30 @@
     tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 
     veins = log --graph --abbrev-commit --decorate --date=relative --all
-	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi\n"
+    ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi\n"
 
 [user]
-	name = Shapath Neupane (Github neupaneshapath)
-	email = neupaneshapath@gmail.com
+    name = github: theshapguy
+    email = just use github to contact me
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+    clean = git lfs clean %f
+    smudge = git lfs smudge %f
+    required = true
 [core]
-	excludesfile = ~/.gitignore
-	whitespace = trailing-space,space-before-tab
+    excludesfile = ~/.gitignore
+    whitespace = trailing-space,space-before-tab
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path =
 [mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 trustExitCode = true
 [advice]
-	statusHints = false
-	pushNonFastForward = false
+    statusHints = false
+    pushNonFastForward = false
 
 [push]
-	default = simple
+    default = simple
     set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+[commit]
+    gpgsign = false

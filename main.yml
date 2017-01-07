@@ -1,107 +1,23 @@
 ---
-- hosts: localhost
-  gather_facts: false
 
+- hosts: all
+  gather_facts: true
 
-  vars_files:
-    - vars/main.yml
+  vars:
+    user:
+        id: shapath
+        name: Shapath Neupane
+        nickname: Shap
+        email: developer@theshapguy.com
 
   tasks:
-
-
-    - name: Brew Taps
-      homebrew_tap: tap={{item}} state=present
-      with_items: homebrew.taps
-
-
-    - name: Install packages with homebrew
-      homebrew: name={{item}} state=present
-      with_items: homebrew.packages
-
-    - name: Upgrade Brew Packages
-      homebrew: upgrade_all=yes
-
-
-    - name: Install Cask Applications
-      homebrew_cask: name={{item}} state=installed
-      with_items: homebrew.cask.apps
-      ignore_errors: true
-
-
-    - name: Install pip packages
-      pip: name={{item}}
-      with_items: pip.packages
-
-
-    - name: Install Source Code Pro
-      git: repo={{item}}
-           dest={{source_code_pro.dest_folder}}
-           clone=yes
-           version=release
-           accept_hostkey=yes
-           update=yes
-      with_items: source_code_pro.repo
-
-
-    # - name: Setup OSX Defaults
-    #   command: sh files/osx.sh
-    #   changed_when: false
-
-
-    # - name: Create Symlinks
-
-
-
-    - name: Install NPM Pakacges
-      npm: name={{ item }} global=yes state=present
-      with_items: npm.packages
-
-
-    # - name: Install Vagrant with Default Phusion Box
-
-
-
-    # - name: Install custom SublimeText Themes
-    #   git: >
-    #     repo={{item.repo}}
-    #     dest="/Users/{{user}}/Library/Application Support/Sublime Text/Packages/Theme - {{item.name}}"
-    #     accept_hostkey=yess
-    #   with_items: sublime_text.themes
-    #   ignore_errors: yes
-
-    - name: Copy Bash Profile
-      copy: src=files/bash_profile
-            dest=/Users/{{user}}/.bash_profile
-            mode=0644
-            owner=root
-            group=staff
-
-    - name: Copy Git Config
-      copy: src=files/git_config
-            dest=/Users/{{user}}/.gitconfig
-            mode=0644
-            owner={{user}}
-            group=staff
-
-    - name: Create Symlink to Keep Git-Track of Bash Profile
-      file: src=/Users/{{user}}/.bash_profile
-            dest=files/bash_profile
-            state=link
-
-    - name: Create Symlink to Keep Git-Track of Git Config
-      file: src=/Users/{{user}}/.gitconfig
-            dest=files/git_config
-            state=link
-
-    - name: Register Git user
-      command: >
-          git config --global user.name "{{git.global.user_name}}"
-      changed_when: false
-
-    - name: Register Git email
-      command: >
-           git config --global user.email "{{git.global.user_email}}"
-      changed_when: false
-
-
+    # - include: tasks/brew.yml
+    # - include: tasks/python.yml
+    # - include: tasks/sublime.yml
+    # - include: tasks/git.yml
+    # # Last Because Configration After Everything Installs
+    # # Also Need to Find A Better Place to Put It
+    # - include: tasks/dot.yml
+    # Personalization Scripts (Need to make it better right now is c & p)
+    - include: tasks/scripts.yml
 

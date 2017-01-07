@@ -1,0 +1,36 @@
+---
+
+- name: Download Package Control
+  get_url:
+    url: https://packagecontrol.io/Package%20Control.sublime-package
+    dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-package"
+    mode: 0740
+
+
+- name: Download Sublime Theme - Space Gray
+  git:
+    repo: https://github.com/kkga/spacegray.git
+    dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/Theme - Spacegray"
+
+
+- name: Copy Sublime Configuration (Keymap)
+  copy:
+    src: files/sublime/default.sublime-keymap
+    dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap"
+    mode: 0740
+    owner: "{{ user.id }}"
+
+
+- name: Copy Sublime Configuration (Perferences)
+  copy:
+    src: files/sublime/Preferences.sublime-settings
+    dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+    mode: 0740
+    owner: "{{ user.id }}"
+
+
+- name: Create Sublime Text Symlink To Open From Terminal
+  file:
+    src: /Applications/Sublime Text.app/Contents/SharedSupport/bin/subl
+    dest: /usr/local/bin/sl
+    state: link

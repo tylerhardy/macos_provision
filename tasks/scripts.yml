@@ -1,0 +1,5 @@
+---
+
+- name: Run Customization Script (Make Take Some Time)
+  script: scripts/osx.sh
+  changed_when: false
