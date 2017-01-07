@@ -1,13 +1,15 @@
 ###########################################
 ## Put Enviornment Varibals in .bash_env ##
 ###########################################
+
+
 export PS1="\[\e[00;33m\]\u\[\e[0m\]\[\e[00;37m\]@\h:\n\[\e[0m\]\[\e[00;36m\][\w]:\[\e[0m\]\[\e[00;37m\] \[\e[0m\]"
 
 
 export GOPATH=$HOME/Developer/goworkspace
 export PATH=$PATH:$GOPATH/bin
 
-export ANDROID_HOME=/Users/{{ user }}/Library/Android/sdk
+export ANDROID_HOME=/Users/{{ user.id }}/Library/Android/sdk
 
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
@@ -39,10 +41,10 @@ alias blog="ws; cd www; cd blog"
 alias studio="open ~/Applications/Android\ Studio.app"
 
 #Directories
-alias ws="cd /Users/shapath/Developer"
-alias dws="cd /Users/{{ user }}/Developer/django"
-alias aws="cd /Users/{{ user }}/Developer/Android"
-alias gws="cd /Users/{{ user }}/Developer/goworkspace/src"
+alias ws="cd /Users/{{ user.id }}/Developer"
+alias dws="cd /Users/{{ user.id }}/Developer/django"
+alias aws="cd /Users/{{ user.id }}/Developer/Android"
+alias gws="cd /Users/{{ user.id }}/Developer/goworkspace/src"
 
 
 
@@ -73,9 +75,11 @@ alias ip='ipconfig getifaddr en0'
 ### Added by the Heroku Toolbelt
 
 ### SSH
-# alias sshcinetime="ssh -p 2063 shapath@128.199.124.199"
 alias pub="cat ~/.ssh/id_rsa.pub | pbcopy"
+# TODO
+# Add GPG Tools Key Too
 
+# Change This Accordingly
 export VAGRANT_ID="933242b"
 
 #Vagrant Default Instance

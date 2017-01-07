@@ -3,13 +3,15 @@
 My Ansible Playbook for my Mac
 
 ```
-    Run [ run.sh ] on `non sudo` mode to run the playbooks.
+
+    Run [ run.sh ] in `non sudo` mode to run the playbooks.
     Ansible will automatically ask for sudo password when required.
 
 ```
 
 ### Comming Soon
 
-    - Add Tags for updates and for smaller groups
-    - I dont think I'll be using roles for this one!
-    - Install Apps via the Mac App Store. (pssshh.. It actually is possible; I'm going to update this soon!)
+    - Add `tags` to Tasks for Modular Updates (Not using `roles` in this one!)
+    - Install Apps via the Mac App Store. Its possible!
+    - iTerm2 Defaults
+    - And few more changes.
