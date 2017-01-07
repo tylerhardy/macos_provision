@@ -2,7 +2,7 @@
 
 - name: Copy Git Config
   copy:
-    src: files/dot/git_config
+    src: files/dot/gitconfig
     dest: "/Users/{{user.id }}/.gitconfig"
     mode: 0644
     owner: "{{ user.id }}"

@@ -2,13 +2,10 @@
 
 - name: Install pip packages
   pip: name={{item}} state=latest
-  with_items: pip.packages
-
-# python vars
-pip:
-  packages:
+  with_items:
     - pip
     - ipython
     - virtualenv
     - requests
     - setuptools
+

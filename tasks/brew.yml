@@ -33,13 +33,13 @@
   ignore_errors: true
   with_items:
       - spotify
-      - sublime-text3
+      - sublime-text
       - virtualbox
       - vagrant
       - vlc
       - iterm2
       - the-unarchiver
-      - pgadmin3
+      # - pgadmin3
       - flux
       - transmission
       - lightpaper
@@ -49,6 +49,7 @@
       - opera
       - postman
       - font-awesome-terminal-fonts
+      - font-source-code-pro
 
 
 

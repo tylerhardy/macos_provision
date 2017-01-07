@@ -1,9 +1,17 @@
 ---
 
+- name: Create Sublime Text Packages Directory
+  file:
+    path: /Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/User/
+    state: directory
+
+
 - name: Download Package Control
   get_url:
     url: https://packagecontrol.io/Package%20Control.sublime-package
-    dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-package"
+    dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/User/
+
+Package Control.sublime-package"
     mode: 0740
 
 

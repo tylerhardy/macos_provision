@@ -5,19 +5,19 @@
 
   vars:
     user:
-        id: shapath
+        id: theshapguy
         name: Shapath Neupane
         nickname: Shap
         email: developer@theshapguy.com
 
   tasks:
-    # - include: tasks/brew.yml
-    # - include: tasks/python.yml
-    # - include: tasks/sublime.yml
-    # - include: tasks/git.yml
+     - include: tasks/brew.yml
+     - include: tasks/python.yml
+     - include: tasks/sublime.yml
+     - include: tasks/git.yml
     # # Last Because Configration After Everything Installs
     # # Also Need to Find A Better Place to Put It
-    # - include: tasks/dot.yml
+     - include: tasks/dot.yml
     # Personalization Scripts (Need to make it better right now is c & p)
-    - include: tasks/scripts.yml
+     - include: tasks/scripts.yml
 
