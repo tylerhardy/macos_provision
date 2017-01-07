@@ -1,25 +1,15 @@
-[![Build Status](https://travis-ci.org/neupaneshapath/ansible-mac-provision.svg?branch=master)](https://travis-ci.org/neupaneshapath/ansible-mac-provision)
+# My Mac OS Provision
 
-# Mac Provision
-
-
-An ansible playbook for generating my development environment.
-
-
+My Ansible Playbook for my Mac
 
 ```
-
     Run [ run.sh ] on `non sudo` mode to run the playbooks.
     Ansible will automatically ask for sudo password when required.
 
 ```
 
-##ToDo
+### Comming Soon
 
-    1. Move to Ansible Roles for Modularity
-    3. Add Tags to Ansible Playbooks and Roles
-
-
-### Out of Scope for this Script
-
-    - Install Apps via the Mac App Store. Because Apple!
+    - Add Tags for updates and for smaller groups
+    - I dont think I'll be using roles for this one!
+    - Install Apps via the Mac App Store. (pssshh.. It actually is possible; I'm going to update this soon!)
