@@ -3,19 +3,70 @@
 ###########################################
 
 
-export PS1="\[\e[00;33m\]\u\[\e[0m\]\[\e[00;37m\]@\h:\n\[\e[0m\]\[\e[00;36m\][\w]:\[\e[0m\]\[\e[00;37m\] \[\e[0m\]"
+# export PS1="\[\e[00;33m\]\u\[\e[0m\]\[\e[00;37m\]@\h:\n\[\e[0m\]\[\e[00;36m\][\w]:\[\e[0m\]\[\e[00;37m\] \[\e[0m\]"
+
+export PS1="\[\033[38;5;244m\][\[$(tput sgr0)\]\[\033[38;5;12m\]\A\[$(tput sgr0)\]\[\033[38;5;244m\]]-[\[$(tput sgr0)\]\[\033[38;5;9m\]\u\[$(tput sgr0)\]\[\033[38;5;244m\]@\[$(tput sgr0)\]\[\033[38;5;229m\]\h\[$(tput sgr0)\]\[\033[38;5;244m\]]-[\[$(tput sgr0)\]\[\033[38;5;69m\]\w\[$(tput sgr0)\]\[\033[38;5;244m\]] \`parse_git_branch\`\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]\[\033[38;5;7m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+
+# get current branch in git repo
+function parse_git_branch() {
+    BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+    if [ ! "${BRANCH}" == "" ]
+    then
+        echo "[${BRANCH}]"
+    else
+        echo ""
+    fi
+}
+
+# get current status of git repo
+function parse_git_dirty {
+    # Not Using This
+    status=`git status 2>&1 | tee`
+    dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
+    untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
+    ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
+    newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+    renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
+    deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+    bits=''
+    if [ "${renamed}" == "0" ]; then
+        bits=">${bits}"
+    fi
+    if [ "${ahead}" == "0" ]; then
+        bits="*${bits}"
+    fi
+    if [ "${newfile}" == "0" ]; then
+        bits="+${bits}"
+    fi
+    if [ "${untracked}" == "0" ]; then
+        bits="?${bits}"
+    fi
+    if [ "${deleted}" == "0" ]; then
+        bits="x${bits}"
+    fi
+    if [ "${dirty}" == "0" ]; then
+        bits="!${bits}"
+    fi
+    if [ ! "${bits}" == "" ]; then
+        echo " ${bits}"
+    else
+        echo ""
+    fi
+}
+
+# export PS1="[\A]-[\u@\h]-[\w] \`parse_git_branch\`\n\\$ "
 
 
 export GOPATH=$HOME/Developer/goworkspace
-export PATH=$PATH:$GOPATH/bin
 
-export ANDROID_HOME=/Users/{{ user.id }}/Library/Android/sdk
+# This might cause error if username is changed.
+export ANDROID_HOME=/Users/theshapguy/Library/Android/sdk
 
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$GOPATH/bin
+# After Installing Postgres App
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
-
 
 export EDITOR=nano
 
@@ -36,18 +87,16 @@ complete -o default -o nospace -F _git g
 alias e="sl ~/.bash_profile"
 alias save="source ~/.bash_profile"
 
-alias blog="ws; cd www; cd blog"
-
-
 #Open Programs
 alias studio="open ~/Applications/Android\ Studio.app"
 
 #Directories
-alias ws="cd /Users/{{ user.id }}/Developer"
-alias dws="cd /Users/{{ user.id }}/Developer/django"
-alias aws="cd /Users/{{ user.id }}/Developer/Android"
-alias gws="cd /Users/{{ user.id }}/Developer/goworkspace/src"
+alias ws="cd /Users/theshapguy/Developer"
+alias gws="cd /Users/theshapguy/Developer/goworkspace/src"
+alias cws="cd /Users/theshapguy/Documents/University/Semester\ 5/CS\ 1410/Code"
 
+#Vishnu Project Alias
+alias vishnu="cd /Users/theshapguy/Developer/Vishnu"
 
 
 #Python
@@ -59,17 +108,10 @@ export PIP_DEFAULT_TIMEOUT=60
 alias pyfmt="find . -name '*.py' -exec autopep8 --in-place --jobs=1 '{}' \;"
 
 #Django
-
 alias rs="python manage.py runserver 0.0.0.0:8000"
 alias sdb="python manage.py syncdb"
 alias mm="python manage.py makemigrations"
 alias m="python manage.py migrate"
-
-    #Python Projects
-
-#alias si="dws;cd siddhamahayoga; ve; cd app; clear"
-#alias ne="dws;cd neptiun; ve; cd app; clear"
-#alias sk="dws;cd skyshot; ve; cd app; clear"
 
 
 #Network
@@ -82,22 +124,25 @@ alias pub="cat ~/.ssh/id_rsa.pub | pbcopy"
 # Add GPG Tools Key Too
 
 # Change This Accordingly
-export VAGRANT_ID="933242b"
+# Disabling Them For Now
+# export VAGRANT_ID="933242b"
 
-#Vagrant Default Instance
-alias vup="vagrant up $VAGRANT_ID"
-alias vreload="vagrant reload $VAGRANT_ID"
-alias vhalt="vagrant halt $VAGRANT_ID"
-alias vssh="vagrant ssh $VAGRANT_ID"
-alias vbuild="vagrant provision $VAGRANT_ID"
-alias vsuspend="vagrant suspend $VAGRANT_ID"
-alias vstart="vup; vssh"
-alias vrestart="vhalt; vstart"
-
+# #Vagrant Default Instance
+# alias vup="vagrant up $VAGRANT_ID"
+# alias vreload="vagrant reload $VAGRANT_ID"
+# alias vhalt="vagrant halt $VAGRANT_ID"
+# alias vssh="vagrant ssh $VAGRANT_ID"
+# alias vbuild="vagrant provision $VAGRANT_ID"
+# alias vsuspend="vagrant suspend $VAGRANT_ID"
+# alias vstart="vup; vssh"
+# alias vrestart="vhalt; vstart"
 
 #Bash Functions
-
 
 if [ -f ~/.bash_env ]; then
     . ~/.bash_env
 fi
+
+function update(){
+  git checkout master && git pull && git checkout - && git rebase master
+}
