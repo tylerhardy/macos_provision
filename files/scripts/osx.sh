@@ -860,7 +860,7 @@ defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
     "Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
-    "Opera" "Photos" "Safari" "SystemUIServer" "Terminal" \
+    "Opera" "Photos" "Safari" "SystemUIServer" \
     "Transmission" "iCal"; do
     killall "${app}" &> /dev/null
 done

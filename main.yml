@@ -5,10 +5,10 @@
 
   vars:
     user:
-        id: theshapguy
-        name: Shapath Neupane
-        nickname: Shap
-        email: developer@theshapguy.com
+        id: tylerhardy
+        name: Tyler Hardy
+        nickname: tyler
+        email: tylerhardy@gmail.com
 
   tasks:
      - include: tasks/brew.yml
