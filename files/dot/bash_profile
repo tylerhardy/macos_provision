@@ -57,14 +57,14 @@ function parse_git_dirty {
 # export PS1="[\A]-[\u@\h]-[\w] \`parse_git_branch\`\n\\$ "
 
 
-export GOPATH=$HOME/Developer/goworkspace
+# export GOPATH=$HOME/Developer/goworkspace
 
 # This might cause error if username is changed.
-export ANDROID_HOME=/Users/theshapguy/Library/Android/sdk
+# export ANDROID_HOME=/Users/tylerhardy/Library/Android/sdk
 
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$GOPATH/bin
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+# export PATH=$PATH:$GOPATH/bin
 # After Installing Postgres App
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
@@ -88,15 +88,20 @@ alias e="sl ~/.bash_profile"
 alias save="source ~/.bash_profile"
 
 #Open Programs
-alias studio="open ~/Applications/Android\ Studio.app"
+alias gc="open /Applications/Google\ Chrome.app"
 
 #Directories
-alias ws="cd /Users/theshapguy/Developer"
-alias gws="cd /Users/theshapguy/Developer/goworkspace/src"
-alias cws="cd /Users/theshapguy/Documents/University/Semester\ 5/CS\ 1410/Code"
+alias ws="cd /Users/tylerhardy/Developer"
+# alias gws="cd /Users/tylerhardy/Developer/goworkspace/src"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+function md () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 #Vishnu Project Alias
-alias vishnu="cd /Users/theshapguy/Developer/Vishnu"
+# alias vishnu="cd /Users/tylerhardy/Developer/Vishnu"
 
 
 #Python
@@ -115,27 +120,14 @@ alias m="python manage.py migrate"
 
 
 #Network
-alias ip='ipconfig getifaddr en0'
+alias ip='ipconfig getifaddr en1'
+alias nic='ipconfig getifaddr en0'
 ### Added by the Heroku Toolbelt
 
 ### SSH
 alias pub="cat ~/.ssh/id_rsa.pub | pbcopy"
 # TODO
-# Add GPG Tools Key Too
-
-# Change This Accordingly
-# Disabling Them For Now
-# export VAGRANT_ID="933242b"
-
-# #Vagrant Default Instance
-# alias vup="vagrant up $VAGRANT_ID"
-# alias vreload="vagrant reload $VAGRANT_ID"
-# alias vhalt="vagrant halt $VAGRANT_ID"
-# alias vssh="vagrant ssh $VAGRANT_ID"
-# alias vbuild="vagrant provision $VAGRANT_ID"
-# alias vsuspend="vagrant suspend $VAGRANT_ID"
-# alias vstart="vup; vssh"
-# alias vrestart="vhalt; vstart"
+# Add GPG Tools Key To
 
 #Bash Functions
 
@@ -146,3 +138,8 @@ fi
 function update(){
   git checkout master && git pull && git checkout - && git rebase master
 }
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH

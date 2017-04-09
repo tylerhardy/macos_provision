@@ -32,22 +32,22 @@
   homebrew_cask: name={{item}} state=installed
   ignore_errors: true
   with_items:
-      - spotify
+      #- spotify
       - sublime-text
       - virtualbox
-      - vagrant
+      #- vagrant
       - vlc
       - iterm2
       - the-unarchiver
       # - pgadmin3
       - flux
       - transmission
-      - lightpaper
-      - android-studio
+      #- lightpaper
+      #- android-studio
       - keepingyouawake
-      - gpgtools
-      - opera
-      - postman
+      #- gpgtools
+      #- opera
+      #- postman
       - font-awesome-terminal-fonts
       - font-source-code-pro
       - postgres
