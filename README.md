@@ -1,21 +1,15 @@
-# My Mac OS Provision
-4-9-2017
+# Personal Mac OS Provision
 
 My Ansible Playbook for my Mac
 
 ```
-
-    Run [ run.sh ] in `non sudo` mode to run the playbooks.
-    Ansible will automatically ask for sudo password when required.
-
+Run [ run.sh ] in `non sudo` mode to run the playbooks.
+Ansible will automatically ask for sudo password when required.
 ```
 
-### Coming Soon
-
+### ToDo
     - Add `tags` to Tasks for Modular Updates (Not using `roles` in this one!)
     - Install Apps via the Mac App Store. Its possible!
-    - iTerm2 Defaults
-    - And few more changes.
 
-### Bugs
-    - Ansible is asking for password multiple times; need to look into it.
+### Caveats
+    - Scripts asks for password more than once, especially, when personalization script is running `osx.sh`.

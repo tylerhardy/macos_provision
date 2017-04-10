@@ -1,0 +1,19 @@
+- name: Remove Default pList
+  file:
+    path: "~/Library/Preferences/com.googlecode.iterm2.plist"
+    state: absent
+
+- name: Remove Default pList Cache
+  command: "defaults read com.googlecode.iterm2"
+  ignore_errors: true
+
+- name: Make sure iterm2 default config directory exists
+  file: path=/Users/{{ user.id }}/.iterm state=directory
+
+- name: Copy iterm preferences
+  template:
+    src: "files/dot/iterm"
+    dest: "/Users/{{ user.id }}/.iterm/com.googlecode.iterm2.plist"
+    mode: 0644
+    owner: "{{ user.id }}"
+    group: staff

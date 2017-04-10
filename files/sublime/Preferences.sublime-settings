@@ -98,6 +98,10 @@
     "open_files_in_new_window": false,
     "overlay_scroll_bars": "enabled",
     "preview_on_click": false,
+    "rulers":
+    [
+    82
+    ],
     "save_on_focus_lost": true,
     "scroll_past_end": true,
     "scroll_speed": 5.0,
@@ -109,7 +113,8 @@
     "tabs_padding_small": true,
     "translate_tabs_to_spaces": true,
     "trim_trailing_white_space_on_save": true,
-    "wrap_width": true,
+    "wrap_width": 80
+    "word_wrap": true,
 
     "show_definitions": true,
     "show_encoding": true,

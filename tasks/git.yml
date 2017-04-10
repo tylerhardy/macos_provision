@@ -1,7 +1,7 @@
 ---
 
 - name: Copy Git Config
-  copy:
+  template:
     src: files/dot/gitconfig
     dest: "/Users/{{user.id }}/.gitconfig"
     mode: 0644

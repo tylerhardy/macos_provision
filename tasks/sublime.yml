@@ -9,9 +9,7 @@
 - name: Download Package Control
   get_url:
     url: https://packagecontrol.io/Package%20Control.sublime-package
-    dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/User/
-
-Package Control.sublime-package"
+    dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-package"
     mode: 0740
 
 
@@ -19,6 +17,18 @@ Package Control.sublime-package"
   git:
     repo: https://github.com/kkga/spacegray.git
     dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/Theme - Spacegray"
+
+
+- name: Download Sublime Theme - Material Theme
+  git:
+    repo: https://github.com:equinusocio/material-theme.git
+    dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/Material Theme"
+
+
+- name: Download Sublime Theme - predawn
+  git:
+    repo: https://github.com:jamiewilson/predawn.git
+    dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/predawn"
 
 
 - name: Copy Sublime Configuration (Keymap)

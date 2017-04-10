@@ -5,6 +5,7 @@
 
   vars:
     user:
+        # Change these before continuing
         id: tylerhardy
         name: Tyler Hardy
         nickname: tyler
@@ -15,9 +16,6 @@
      - include: tasks/python.yml
      - include: tasks/sublime.yml
      - include: tasks/git.yml
-    # # Last Because Configration After Everything Installs
-    # # Also Need to Find A Better Place to Put It
+     - include: tasks/iterm2.yml
      - include: tasks/dot.yml
-    # Personalization Scripts (Need to make it better right now is c & p)
      - include: tasks/scripts.yml
-

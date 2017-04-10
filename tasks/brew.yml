@@ -7,12 +7,12 @@
   with_items:
     - caskroom/fonts
     - homebrew/completions
+    - caskroom/versions
 
 - name: Install packages with homebrew
   homebrew: name={{item}} state=present
   with_items:
       - git
-      - git-flow
       - go
       - ssh-copy-id
       - wget
@@ -21,8 +21,6 @@
       - python
       - python3
       - hugo
-      # Digital Ocean CLI
-      - doctl
 
 - name: Upgrade Brew Packages
   homebrew: upgrade_all=yes
@@ -32,26 +30,23 @@
   homebrew_cask: name={{item}} state=installed
   ignore_errors: true
   with_items:
-      #- spotify
       - sublime-text
       - virtualbox
-      #- vagrant
+      - visual-studio-code
       - vlc
+      - dropbox
+      - google-drive
       - iterm2
       - the-unarchiver
-      # - pgadmin3
       - flux
       - transmission
-      #- lightpaper
-      #- android-studio
       - keepingyouawake
-      #- gpgtools
-      #- opera
-      #- postman
+      - google-chrome
+      - firefoxdeveloperedition
       - font-awesome-terminal-fonts
       - font-source-code-pro
-      - postgres
-
+      - dash
+      - sourcetree
 
 
 # Homebrew Vars

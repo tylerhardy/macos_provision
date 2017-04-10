@@ -2,5 +2,3 @@
 
 - name: Create Gopath (Workspace)
   file: path=/Users/{{ user.id }}/Developer/goworkspace state=directory
-
-# Add Go Get Later

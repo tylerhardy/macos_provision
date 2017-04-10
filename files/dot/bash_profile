@@ -1,9 +1,63 @@
-###########################################
-## Put Enviornment Varibals in .bash_env ##
-###########################################
+
+# export GOPATH=$HOME/Developer/goworkspace
+# export ANDROID_HOME=/Users/{{ user.id }}/Library/Android/sdk
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+# export PATH=$PATH:$GOPATH/bin
+
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+alias g="git "
+source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
+complete -o default -o nospace -F _git g
 
 
-# export PS1="\[\e[00;33m\]\u\[\e[0m\]\[\e[00;37m\]@\h:\n\[\e[0m\]\[\e[00;36m\][\w]:\[\e[0m\]\[\e[00;37m\] \[\e[0m\]"
+### Files Aliases
+alias e="sl ~/.bash_profile"
+alias save="source ~/.bash_profile"
+
+### Application Aliases
+alias gc="open /Applications/Google\ Chrome.app"
+alias dutil="open /Applications/Utilities/Disk\ Utility.app"
+alias pref="open /Applications/System\ Preferences.app"
+alias app="open /Applications/App\ Store.app"
+alias vs="open /Applications/Visual\ Studio\ Code.app"
+alias rdp="open /Applications/Microsoft\ Remote\ Desktop.app"
+alias any="open /Applications/Cisco/Cisco\ AnyConnect\ Secure\ Mobility\ Client.app"
+alias remind="open /Applications/Reminders.app"
+
+### Directories Aliases
+alias ws="cd /Users/tylerhardy/Developer"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+function md () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+### Project Aliases
+
+### Python Aliases
+alias ve="source bin/activate"
+alias d="deactivate"
+alias req="pip freeze > requirements.txt"
+export PIP_DEFAULT_TIMEOUT=60
+alias pyfmt="find . -name '*.py' -exec autopep8 --in-place --jobs=1 '{}' \;"
+
+### Django Aliases
+# alias rs="python manage.py runserver 0.0.0.0:8000"
+# alias sdb="python manage.py syncdb"
+# alias mm="python manage.py makemigrations"
+# alias m="python manage.py migrate"
+
+### Network Aliases
+alias ip='ipconfig getifaddr en1'
+alias nic='ipconfig getifaddr en0'
+
+### SSH Aliases
+alias pub="cat ~/.ssh/id_rsa.pub | pbcopy"
+
+export EDITOR=nano
 
 export PS1="\[\033[38;5;244m\][\[$(tput sgr0)\]\[\033[38;5;12m\]\A\[$(tput sgr0)\]\[\033[38;5;244m\]]-[\[$(tput sgr0)\]\[\033[38;5;9m\]\u\[$(tput sgr0)\]\[\033[38;5;244m\]@\[$(tput sgr0)\]\[\033[38;5;229m\]\h\[$(tput sgr0)\]\[\033[38;5;244m\]]-[\[$(tput sgr0)\]\[\033[38;5;69m\]\w\[$(tput sgr0)\]\[\033[38;5;244m\]] \`parse_git_branch\`\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]\[\033[38;5;7m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
@@ -54,80 +108,11 @@ function parse_git_dirty {
     fi
 }
 
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+# Older PS1's
+# export PS1="\[\e[00;33m\]\u\[\e[0m\]\[\e[00;37m\]@\h:\n\[\e[0m\]\[\e[00;36m\][\w]:\[\e[0m\]\[\e[00;37m\] \[\e[0m\]"
+# export PS1="[\A]-[\u@\h]-[\w] \`parse_git_branch\`\n\\$ "
 
-export EDITOR=nano
-
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-alias g="git "
-source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
-complete -o default -o nospace -F _git g
-
-#Open Files
-alias e="sl ~/.bash_profile"
-alias save="source ~/.bash_profile"
-
-#Open Programs
-alias gc="open /Applications/Google\ Chrome.app"
-alias dutil="open /Applications/Utilities/Disk\ Utility.app"
-alias pref="open /Applications/System\ Preferences.app"
-alias app="open /Applications/App\ Store.app"
-alias vs="open /Applications/Visual\ Studio\ Code.app"
-alias rdp="open /Applications/Microsoft\ Remote\ Desktop.app"
-alias any="open /Applications/Cisco/Cisco\ AnyConnect\ Secure\ Mobility\ Client.app"
-alias remind="open /Applications/Reminders.app"
-
-#Directories
-alias ws="cd /Users/tylerhardy/Developer"
-# alias gws="cd /Users/tylerhardy/Developer/goworkspace/src"
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
-function md () { mkdir -p "$@" && eval cd "\"\$$#\""; }
-
-#Vishnu Project Alias
-# alias vishnu="cd /Users/tylerhardy/Developer/Vishnu"
-
-
-#Python
-alias ve="source bin/activate"
-alias d="deactivate"
-alias req="pip freeze > requirements.txt"
-export PIP_DEFAULT_TIMEOUT=60
-
-alias pyfmt="find . -name '*.py' -exec autopep8 --in-place --jobs=1 '{}' \;"
-
-#Django
-alias rs="python manage.py runserver 0.0.0.0:8000"
-alias sdb="python manage.py syncdb"
-alias mm="python manage.py makemigrations"
-alias m="python manage.py migrate"
-
-
-#Network
-alias ip='ipconfig getifaddr en1'
-alias nic='ipconfig getifaddr en0'
-### Added by the Heroku Toolbelt
-
-### SSH
-alias pub="cat ~/.ssh/id_rsa.pub | pbcopy"
-# TODO
-# Add GPG Tools Key To
-
-#Bash Functions
-
+# Enviornment Variables in a Different File
 if [ -f ~/.bash_env ]; then
     . ~/.bash_env
 fi
-
-function update(){
-  git checkout master && git pull && git checkout - && git rebase master
-}
-
-# Setting PATH for Python 3.6
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH

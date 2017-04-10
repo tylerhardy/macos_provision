@@ -44,8 +44,8 @@
     ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi\n"
 
 [user]
-    name = github: tylerhardy
-    email = just use github to contact me
+    name = {{ user.name }}
+    email = {{ user.email }}
 [filter "lfs"]
     clean = git lfs clean %f
     smudge = git lfs smudge %f

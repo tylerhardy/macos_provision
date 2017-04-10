@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# ~/.macos — https://mths.be/macos
+# Via ~/.macos — https://mths.be/macos
 # I liked his preferences so only edited a little.
-# Do checkout his script too
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
