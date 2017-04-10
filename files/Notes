@@ -1,0 +1,10 @@
+# Notes
+
+## Remove git from folder
+rm -rf .git
+
+## Create symbolic link
+ln -s "/Users/tylerhardy/Developer"  "/Users/tylerhardy/Dropbox/Developer"
+
+mv "/path/to/ExternalFolder" "/Users/name/Google Drive/"
+ln -s "/Users/name/Google Drive/ExternalFolder" "/path/to/ExternalFolder"

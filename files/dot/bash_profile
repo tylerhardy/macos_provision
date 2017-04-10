@@ -54,34 +54,15 @@ function parse_git_dirty {
     fi
 }
 
-# export PS1="[\A]-[\u@\h]-[\w] \`parse_git_branch\`\n\\$ "
-
-
-# export GOPATH=$HOME/Developer/goworkspace
-
-# This might cause error if username is changed.
-# export ANDROID_HOME=/Users/tylerhardy/Library/Android/sdk
-
-# export PATH=$PATH:$ANDROID_HOME/tools
-# export PATH=$PATH:$ANDROID_HOME/platform-tools
-# export PATH=$PATH:$GOPATH/bin
-# After Installing Postgres App
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 export EDITOR=nano
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-#Env Variables
-
-    #Production Key
-
-    #Database Keys
-
 alias g="git "
 source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
 complete -o default -o nospace -F _git g
-
 
 #Open Files
 alias e="sl ~/.bash_profile"
@@ -89,6 +70,13 @@ alias save="source ~/.bash_profile"
 
 #Open Programs
 alias gc="open /Applications/Google\ Chrome.app"
+alias dutil="open /Applications/Utilities/Disk\ Utility.app"
+alias pref="open /Applications/System\ Preferences.app"
+alias app="open /Applications/App\ Store.app"
+alias vs="open /Applications/Visual\ Studio\ Code.app"
+alias rdp="open /Applications/Microsoft\ Remote\ Desktop.app"
+alias any="open /Applications/Cisco/Cisco\ AnyConnect\ Secure\ Mobility\ Client.app"
+alias remind="open /Applications/Reminders.app"
 
 #Directories
 alias ws="cd /Users/tylerhardy/Developer"
