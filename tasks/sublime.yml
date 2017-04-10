@@ -21,14 +21,26 @@
 
 - name: Download Sublime Theme - Material Theme
   git:
-    repo: https://github.com:equinusocio/material-theme.git
+    repo: https://github.com/equinusocio/material-theme.git
     dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/Material Theme"
 
 
 - name: Download Sublime Theme - predawn
   git:
-    repo: https://github.com:jamiewilson/predawn.git
+    repo: https://github.com/jamiewilson/predawn.git
     dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/predawn"
+
+
+- name: Download Sublime Package - Anaconda
+  git:
+    repo: https://github.com/DamnWidget/anaconda.git
+    dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/Anaconda"
+
+
+- name: Download Sublime Package - SideBarEnhancements
+  git:
+    repo: https://github.com/SideBarEnhancements-org/SideBarEnhancements.git
+    dest: "/Users/{{ user.id }}/Library/Application Support/Sublime Text 3/Packages/SideBarEnhancements"
 
 
 - name: Copy Sublime Configuration (Keymap)

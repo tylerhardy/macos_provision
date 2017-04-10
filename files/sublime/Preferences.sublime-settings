@@ -108,12 +108,11 @@
     "show_full_path": false,
     "show_minimap": true,
     "sidebar_default": true,
-    "spacegray_fileicons": true,
     "status_bar_brighter": true,
     "tabs_padding_small": true,
     "translate_tabs_to_spaces": true,
     "trim_trailing_white_space_on_save": true,
-    "wrap_width": 80
+    "wrap_width": 80,
     "word_wrap": true,
 
     "show_definitions": true,
