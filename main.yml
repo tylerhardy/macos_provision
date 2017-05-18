@@ -12,7 +12,7 @@
         email: tylerhardy@gmail.com
 
   tasks:
-     - include: tasks/brew.yml
+     # - include: tasks/brew.yml
      - include: tasks/python.yml
      - include: tasks/sublime.yml
      - include: tasks/git.yml

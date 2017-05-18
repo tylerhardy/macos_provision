@@ -8,6 +8,7 @@
     owner: "{{ user.id }}"
     group: staff
 
+
 - name: Register Git user
   command: >
       git config --global user.name "@{{ user.id }}"
